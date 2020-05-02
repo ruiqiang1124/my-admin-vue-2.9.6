@@ -10,6 +10,28 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: () => import('@/views/login/login')
-    }
+    },
+    {
+      path: '/leftNavigation',
+      name: 'leftNavigation',
+      component: () => import("@/layout/leftNavigation"),
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: () => import("@/views/home/home")
+        },
+        {
+          path: '/memberList',
+          name: 'memberList',
+          component: () => import("@/views/member/memberList")
+        },
+        {
+          path: '/memberExperience',
+          name: 'memberExperience',
+          component: () => import("@/views/member/memberExperience")
+        },
+      ]
+    },
   ]
 })
