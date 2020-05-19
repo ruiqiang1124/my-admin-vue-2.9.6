@@ -24,11 +24,13 @@ export default new Router({
         {
           path: '/memberList',
           name: 'memberList',
+          meta: ['会员列表'],
           component: () => import("@/views/member/memberList")
         },
         {
           path: '/memberExperience',
           name: 'memberExperience',
+          meta: ['会员经验值'],
           component: () => import("@/views/member/memberExperience")
         },
       ]

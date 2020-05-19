@@ -1,6 +1,6 @@
 <template>
-  <el-row style="height: 100%">
-    <el-col :span="4" style="height: 100%;">
+  <el-row class="app-wrapper">
+    <el-col :span="4" class="app-wrapper-aside">
       <el-menu default-active="home" text-color="#fff" background-color="#304156" style="height: 100%;" active-text-color="#ffd04b" router>
 		  <template v-for="(menu, menuIndex) in navList" >
 			  	<template v-if="!menu.submenu">
@@ -19,11 +19,13 @@
 		  </template>
       </el-menu>
     </el-col>
-    <el-col :span="20">
+    <el-col :span="20" :offset="4">
 		<navHeader></navHeader>
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+		<div class="container">
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
+		</div>
     </el-col>
   </el-row>
 </template>
@@ -68,5 +70,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+	.container {
+		position: relative;
+		padding: 20px;
+		background-color: #FFF;
+	}
+	.app-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		.app-wrapper-aside {
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 1111;
+		}
+	}
 </style>
