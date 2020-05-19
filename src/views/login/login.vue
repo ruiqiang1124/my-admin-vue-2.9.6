@@ -63,9 +63,9 @@
                             user_name: this.loginForm.username,
                             password: this.loginForm.password
                         }).then(res => {
-                            console.log(res);
+                            // console.log(res);
                         })
-                        this.$router.push({path: 'leftNavigation'})
+                        this.$router.push({path: 'home'})
                     }
                 })
             }

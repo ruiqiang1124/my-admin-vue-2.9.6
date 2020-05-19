@@ -1,13 +1,13 @@
 <template>
   <el-row style="height: 100%">
     <el-col :span="4" style="height: 100%;">
-      <el-menu text-color="#fff" background-color="#304156" style="height: 100%;" active-text-color="#ffd04b" router>
+      <el-menu default-active="home" text-color="#fff" background-color="#304156" style="height: 100%;" active-text-color="#ffd04b" router>
 		  <template v-for="(menu, menuIndex) in navList" >
-			  <template v-if="!menu.submenu" >
+			  	<template v-if="!menu.submenu">
 					<el-menu-item :index="menu.path" :key="menuIndex"><i :class="menu.icon"></i>{{menu.name}}</el-menu-item>
-			  </template>
+				</template>
 			<template v-else>
-				<el-submenu :key="menuIndex" index="null">
+				<el-submenu :key="menuIndex" :index="menu.id">
 					<template slot="title">
 						<i :class="menu.icon"></i>
 						<span>{{menu.name}}</span>
@@ -20,6 +20,7 @@
       </el-menu>
     </el-col>
     <el-col :span="20">
+		<navHeader></navHeader>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import navHeader from './navHeader';
 export default {
 	data() {
 		return {
@@ -36,7 +38,7 @@ export default {
 					name: '首页',
 					path: 'home',
 					icon: 'el-icon-menu',
-					id: 1,
+					id: '1',
 				},
 				{
 					name: '会员管理',
@@ -55,7 +57,14 @@ export default {
 				}
 			]
 		}
-	}
+	},
+	mounted() {
+		console.log(this.$route.path);
+		
+	},
+	components: {
+		navHeader
+	},
 };
 </script>
 
