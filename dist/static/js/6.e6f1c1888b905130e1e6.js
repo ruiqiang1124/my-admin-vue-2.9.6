@@ -1,2 +1,0 @@
-webpackJsonp([6],{UqKU:function(e,t){},"djY+":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement;return(this._self._c||e)("h1",[this._v("抱歉，您没有权限访问该页面")])},staticRenderFns:[]};var s=n("C7Lr")({},r,!1,function(e){n("UqKU")},null,null);t.default=s.exports}});
-//# sourceMappingURL=6.e6f1c1888b905130e1e6.js.map
