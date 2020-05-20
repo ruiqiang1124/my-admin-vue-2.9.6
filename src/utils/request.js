@@ -9,7 +9,7 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
-// request拦截器
+// 请求拦截器
 service.interceptors.request.use(
   config => {
     if(config.method === 'post') {
@@ -28,18 +28,20 @@ service.interceptors.request.use(
 
 
 // 响应拦截器
-service.interceptors.response.use(
-  response => {
-      // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
-      // 否则的话抛出错误
-      // if (response.state == 200) {
-      //     return Promise.resolve(response);
-      // } else {
-      //     return Promise.reject(response);
-      // }
-  },
-  error => { }
-)
+// service.interceptors.response.use(
+//   response => {
+//       // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
+//       // 否则的话抛出错误
+//       console.log(response);
+      
+//       if (response.state == 200) {
+//           return Promise.resolve(response);
+//       } else {
+//           return Promise.reject(response);
+//       }
+//   },
+//   error => { }
+// )
 
 function request(url, data = {}, method = 'get'){
   console.log(data);
@@ -50,7 +52,7 @@ function request(url, data = {}, method = 'get'){
         data
       })
       .then(res => {
-        resolve(res)
+        resolve(res.data);
       })
       .catch(error => {
         reject(error);
