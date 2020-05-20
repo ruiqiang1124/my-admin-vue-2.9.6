@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
-export default new Router({
+ const router = new Router({
   routes: [
     {
       path: '/',
@@ -24,16 +24,44 @@ export default new Router({
         {
           path: '/memberList',
           name: 'memberList',
-          meta: ['会员列表'],
+          meta: {breadcrumb: ['会员列表'], auth: 'asf'},
           component: () => import("@/views/member/memberList")
         },
         {
           path: '/memberExperience',
           name: 'memberExperience',
-          meta: ['会员经验值'],
+          meta: {breadcrumb: ['会员经验值']},
           component: () => import("@/views/member/memberExperience")
         },
+        {
+          path: '/authority',
+          name: 'authority',
+          meta: {
+            breadcrumb: ["权限页面"],
+            authorization: true
+          },
+          component: () => import("@/views/authority/authority")
+        },{
+          path: '/error',
+          name: 'error',
+          meta: {
+            breadcrumb: ['错误页面']
+          },
+          component: () => import("@/components/error/error")
+        }
       ]
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.authorization) {
+    next({
+        path: '/error'
+    })
+  } else {
+      next()
+  }
+})
+
+export default router

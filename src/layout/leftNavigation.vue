@@ -56,6 +56,16 @@ export default {
 							path: 'memberExperience'
 						}
 					]
+				},{
+					name: '权限验证',
+					icon: 'el-icon-lock',
+					id: "3",
+					submenu: [
+						{
+							name: '权限页面',
+							path: 'authority'
+						},
+					]
 				}
 			]
 		}
