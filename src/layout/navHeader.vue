@@ -6,7 +6,10 @@
 			<el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
 		</el-breadcrumb>
 		<el-dropdown @command="handleCommand" menu-align='start'>
-			<img src="@/assets/image/avatar.jpg" class="avator">
+			<div class="rightavatorBox">
+				<span>Hi, Admin</span>
+				<img src="@/assets/image/avatar.jpg" class="avator">
+			</div>
 			<el-dropdown-menu slot="dropdown">
 				<el-dropdown-item command="home">首页</el-dropdown-item>
 				<el-dropdown-item command="signout">退出</el-dropdown-item>
@@ -33,7 +36,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped lang="scss">
 .header_container{
 		background-color: #EFF2F7;
 		height: 60px;
@@ -42,11 +45,19 @@ export default {
 		align-items: center;
 		padding-left: 20px;
 	}
-	.avator{
-        width: 36px;
-        height: 36px;
-		border-radius: 50%;
-		margin-right: 37px;
-	}
 	
+	.rightavatorBox {
+		display: flex;
+		align-items: center;
+		.rightName {
+
+		}
+		.avator{
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			margin-right: 20px;
+			margin-left: 20px;;
+		}
+	}
 </style>
