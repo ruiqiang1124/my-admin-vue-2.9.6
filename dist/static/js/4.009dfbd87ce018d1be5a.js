@@ -1,0 +1,2 @@
+webpackJsonp([4],{V0Ja:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement;return(this._self._c||e)("h1",[this._v("权限页面")])},staticRenderFns:[]};var s=n("C7Lr")({},r,!1,function(e){n("XxH5")},null,null);t.default=s.exports},XxH5:function(e,t){}});
+//# sourceMappingURL=4.009dfbd87ce018d1be5a.js.map
