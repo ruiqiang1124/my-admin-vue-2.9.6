@@ -22,6 +22,7 @@
 <script>
 import lineDemo from '@/components/echarts/line';
 export default {
+  name: "Home",
   data() {
     return {
       echart1Data: {

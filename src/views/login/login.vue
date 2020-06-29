@@ -59,13 +59,8 @@
             handleLogin() {
                 this.$refs.loginForm.validate(valid => {
                     if(valid) {
-                        // login({
-                        //     user_name: this.loginForm.username,
-                        //     password: this.loginForm.password
-                        // }).then(res => {
-                        //     // console.log(res);
-                        // })
-                        this.$router.push({path: 'home'})
+                        localStorage.setItem("token", '111111')
+                         this.$router.push({ path: '/' })
                     }
                 })
             }
