@@ -7,12 +7,14 @@ import router from './router'
 import './styles/index.scss' // global css
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import VueCompositionApi from '@vue/composition-api'
 
 import '@/icons' // icon
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
+Vue.use(VueCompositionApi);
 
 /* eslint-disable no-new */
 new Vue({
