@@ -40,7 +40,6 @@
 </template>
 
 <script>
-    import {login} from '@/api/index'
     export default {
         name: 'Login',
         data() {

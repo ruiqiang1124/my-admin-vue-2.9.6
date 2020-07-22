@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="app-container">
   <el-row :gutter="10">
     <el-col :span="12">
       <lineDemo id="echart1" width="100%" height="400px" ThemeColor="#1f75e7" :chartData="echart1Data"></lineDemo>
@@ -21,6 +21,7 @@
 
 <script>
 import lineDemo from '@/components/echarts/line';
+import {getList} from "@/api/index.js"
 export default {
   name: "Home",
   data() {
@@ -57,6 +58,12 @@ export default {
   },
     components: {
       lineDemo
+    },
+
+    mounted() {
+      // getList({regionCode: "AdminRegion"}).then(res => {
+      //   console.log(res);
+      // })
     }
 }
 </script>
