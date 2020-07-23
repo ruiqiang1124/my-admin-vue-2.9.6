@@ -2,8 +2,10 @@
   <div class="header_container">
 
 		<el-breadcrumb separator="/">
-			<el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-			<!-- <el-breadcrumb-item v-for="(item, index) in $route.meta.breadcrumb" :key="index">{{item}}</el-breadcrumb-item> -->
+			<el-breadcrumb-item v-for="(item,index) in leveList" :key="item.path">
+				<span v-if="item.redirect==='noRedirect'||index==leveList.length-1" class="no-redirect">{{ item.meta.title }}</span>
+        		<a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+			</el-breadcrumb-item>
 		</el-breadcrumb>
 		<el-dropdown @command="handleCommand" menu-align='start'>
 			<div class="rightavatorBox">
@@ -20,11 +22,26 @@
 
 <script>
 export default {
+	data() {
+		return {
+			leveList: null
+		}
+	},
 	mounted() {
 		console.log(this.$route.meta);
 		
 	},
+	watch: {
+		$route() {
+			this.getBreadcrumb();
+		}
+	},
     methods: {
+		getBreadcrumb() {
+			let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
+			this.leveList = matched.filter(item => item.meta && item.meta.title)
+			console.log(this.leveList)
+		},
         handleCommand(command) {
            if (command == 'home') {
 				this.$router.push('/home');
@@ -35,7 +52,14 @@ export default {
                 });
                 this.$router.push('/');
             }
-        }
+		},
+		handleLink(item) {
+			const {redirect, path} = item;
+			if(redirect) {
+				this.$router.push(redirect);
+				return;
+			}
+		}
     }
 }
 </script>

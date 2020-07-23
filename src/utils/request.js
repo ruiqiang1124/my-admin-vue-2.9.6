@@ -1,15 +1,18 @@
-import axios from 'axios'
+import axios from 'axios';
+import { base_url, timeout } from '@/config/request';
 import {
 	MessageBox,
 	Message
 } from 'element-ui'
 // import store from '@/store'
 
+
+const BASE_URL = process.env.NODE_ENV === 'development' ? base_url.dev : base_url.pro;
+
 // create an axios instance
 const service = axios.create({
-	baseURL: "/api", // url = base url + request url
-	// withCredentials: true, // send cookies when cross-domain requests
-	timeout: 5000 // request timeout
+	baseURL: BASE_URL,
+	timeout: timeout 
 })
 
 // request interceptor
@@ -31,7 +34,7 @@ service.interceptors.request.use(
  * */
 export function get(url, params = {}) {
 	return new Promise((resolve, reject) => {
-		httpService({
+		service({
 			url: url,
 			method: 'get',
 			params: params
