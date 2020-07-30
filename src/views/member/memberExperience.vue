@@ -1,150 +1,158 @@
 <template>
-<div class="app-container">
-  <el-table
-    :data="tableData"
-    border
-    style="width: 100%">
-    <el-table-column
-      prop="growth_memberid"
-      label="会员ID"
-      align="center"
-    >
-    </el-table-column>
-    <el-table-column
-      prop="growth_membername"
-      label="会员名称"
-      align="center"
-    >
-    </el-table-column>
-    <el-table-column
-      prop="growth_points"
-      align="center"
-      label="经验值">
-    </el-table-column>
-    <el-table-column
-      prop="growth_addtime"
-      align="center"
-      label="添加时间">
-    </el-table-column>
-    <el-table-column
-      prop="growth_stage"
-      align="center"
-      label="操作阶段">
-    </el-table-column>
-    <el-table-column
-      prop="growth_desc"
-      label="操作描述">
-    </el-table-column>
-  </el-table>
+  <div class="app-container">
+	  <hrq-table 
+	  	:data="tableData" 
+		:columns="columns"
+	  	@OnpaginationChange="paginationChange"
+	  ></hrq-table>
   </div>
 </template>
 
 <script>
+import HrqTable from "@/components/HrqTable/HrqTable";
 export default {
   data() {
-      return {
-        tableData: [
-          {
-            "growth_id":"4769",
-            "growth_memberid":"641",
-            "growth_membername":"startest4",
-            "growth_points":"+9",
-            "growth_addtime":"2020-05-20 02:20:02",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000676401购物消费"
-        },
-        {
-            "growth_id":"4768",
-            "growth_memberid":"641",
-            "growth_membername":"startest4",
-            "growth_points":"+3",
-            "growth_addtime":"2020-05-15 17:43:42",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000793301购物消费"
-        },
-        {
-            "growth_id":"4767",
-            "growth_memberid":"957",
-            "growth_membername":"startest10",
-            "growth_points":"+3",
-            "growth_addtime":"2020-05-15 17:41:52",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000793401购物消费"
-        },
-        {
-            "growth_id":"4766",
-            "growth_memberid":"1787",
-            "growth_membername":"U273607",
-            "growth_points":"+1",
-            "growth_addtime":"2020-05-15 17:35:55",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000793001购物消费"
-        },
-        {
-            "growth_id":"4765",
-            "growth_memberid":"1106",
-            "growth_membername":"gaopeng",
-            "growth_points":"+10",
-            "growth_addtime":"2020-05-14 19:41:38",
-            "growth_stage":"商品评论",
-            "growth_desc":"评价订单:3000000000786901获得经验值"
-        },
-        {
-            "growth_id":"4764",
-            "growth_memberid":"1106",
-            "growth_membername":"gaopeng",
-            "growth_points":"+10",
-            "growth_addtime":"2020-05-14 19:29:07",
-            "growth_stage":"商品评论",
-            "growth_desc":"评价订单:3000000000787001获得经验值"
-        },
-        {
-            "growth_id":"4763",
-            "growth_memberid":"636",
-            "growth_membername":"startest",
-            "growth_points":"+10",
-            "growth_addtime":"2020-05-14 19:12:52",
-            "growth_stage":"商品评论",
-            "growth_desc":"评价订单:3000000000790801获得经验值"
-        },
-        {
-            "growth_id":"4762",
-            "growth_memberid":"1106",
-            "growth_membername":"gaopeng",
-            "growth_points":"+10",
-            "growth_addtime":"2020-05-14 19:10:16",
-            "growth_stage":"商品评论",
-            "growth_desc":"评价订单:3000000000774201获得经验值"
-        },
-        {
-            "growth_id":"4761",
-            "growth_memberid":"636",
-            "growth_membername":"startest",
-            "growth_points":"+1",
-            "growth_addtime":"2020-05-14 11:25:13",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000790801购物消费"
-        },
-        {
-            "growth_id":"4760",
-            "growth_memberid":"636",
-            "growth_membername":"startest",
-            "growth_points":"+1",
-            "growth_addtime":"2020-05-14 11:23:41",
-            "growth_stage":"订单消费",
-            "growth_desc":"订单3000000000790701购物消费"
-        }
-        ]
-      }
+    return {
+      tableData: [{
+          date: '2016-05-03',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id: 1
+        }, {
+          date: '2016-05-02',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:2
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:3
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:4
+        }, {
+          date: '2016-05-08',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:5
+        }, {
+          date: '2016-05-06',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:6
+        }, {
+          date: '2016-05-07',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+		  zip: 200333,
+		  id:7
+        }],
+	  	columns: [
+		  {
+			  prop: 'date',
+			  label: '日期',
+			  id: 2
+		  },
+		  {
+			  prop: "name",
+			  label: '姓名',
+			  id: 3
+		  },
+		  {
+			  prop: "province",
+			  label: "省份",
+			  id: 4
+		  },
+		  {
+			  prop: "city",
+			  label: "市区",
+			  id: 5
+		  },
+		  {
+			  prop: "address",
+			  label: "地址",
+			  id: 6
+		  },
+		  {
+			  prop: "zip",
+			  label: "邮编",
+			  id: 7
+		  },
+		  {
+			  prop: "",
+			  label: "操作",
+			  id: 8,
+			  operation: [
+				  {
+					label: '编辑',
+					id: 1,
+					clickSuccess: scope => this.edit(scope)
+				  },
+				  {
+					  label: '删除',
+					  type: 'danger',
+					  id: 2,
+					  clickSuccess: scope => this.delete(scope)
+				  }
+				  
+			  ]
+		  }
+	  ]
+    };
   },
-  mounted() {
+  components: {
+    HrqTable,
   },
+  mounted() {},
   methods: {
-   
-  }
-}
+	  delete(scope) {
+		  this.$confirm("此操作将永远删除该文件，是否继续？", '提示', {
+			  type: 'warning'
+		  }).then(() => {
+			let {tableData} = this;
+			let newData = tableData.filter(item => item.id != scope.id);
+			this.tableData = newData;
+			this.$message({
+				type: 'success',
+				message: '删除成功!'
+          	});
+		  })
+		  
+	  },
+	  edit(scope) {
+		  console.log('编辑');
+		  console.log(scope);
+		  
+	  },
+	  paginationChange(e) {
+		  console.log(e)
+	  }
+  },
+};
 </script>
 
 <style>
-
 </style>
