@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { base_url, timeout } from '@/config/request';
+import {base_url, timeout} from '@/config/request';
 import {
 	MessageBox,
 	Message
