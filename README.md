@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+[线上访问](https://houruiqiang1124.github.io/my-admin-vue-2.9.6/dist/#/)
+
 ## Build Setup
 
 ``` bash
@@ -23,4 +25,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # axios使用
 * npm install axios --save
 
-# 
+
+
