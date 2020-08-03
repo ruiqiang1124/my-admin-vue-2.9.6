@@ -67,7 +67,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $bg:#283443;
 $light_gray:#fff;
 $cursor: #fff;
@@ -96,6 +96,11 @@ $cursor: #fff;
         transform: translate(-50%, -50%);
         padding: 0 35px;
         box-sizing: border-box;
+    }
+    .el-input__inner {
+        background-color: transparent;
+        outline: none;
+        border: none;
     }
 
     .title-container {
