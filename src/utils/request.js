@@ -11,19 +11,30 @@ const BASE_URL = process.env.NODE_ENV === 'development' ? base_url.dev : base_ur
 
 // create an axios instance
 const service = axios.create({
-	baseURL: BASE_URL,
 	timeout: timeout 
 })
 
-// request interceptor
+// 请求拦截器配置
 service.interceptors.request.use(
 	config => {
 		return config
 	},
 	error => {
+		console.log(error)
 		return Promise.reject(error)
 	}
 )
+
+// 响应拦截器配置
+service.interceptors.response.use(response => { 
+    // do something
+    return response
+}, error => {
+    console.log(error)
+    return Promise.reject(error)
+})
+
+
 
 /*网络请求部分*/
 
@@ -39,7 +50,7 @@ export function get(url, params = {}) {
 			method: 'get',
 			params: params
 		}).then(response => {
-			resolve(response);
+			resolve(response.data);
 		}).catch(error => {
 			reject(error);
 		});
@@ -67,5 +78,6 @@ export function post(url, params = {}) {
 }
 
 export default {
-	post
+	post,
+	get
 }

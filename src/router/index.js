@@ -27,40 +27,13 @@ export const constantRoutes = [
 		component: Layout,
 		redirect: '/example/table',
 		name: 'Example',
-		meta: { title: 'Example', icon: 'el-icon-edit' },
+		meta: { title: '表格', icon: 'el-icon-edit' },
 		children: [
 			{
 				path: 'table',
 				name: 'Table',
 				component: () => import('@/views/member/memberExperience'),
-				meta: { title: 'Table', icon: 'el-icon-s-data' }
-			},
-			{
-				path: 'tree',
-				name: 'Tree',
-				component: () => import('@/views/member/memberList'),
-				meta: { title: 'Tree', icon: 'el-icon-share' }
-			}
-		]
-	},
-	{
-		path: "/vue3",
-		component: Layout,
-		redirect: '/vue3/vue3_1',
-		name: 'vue3',
-		meta: { title: 'vue3', icon: 'el-icon-s-marketing' },
-		children: [
-			{
-				path: 'vue3_1',
-				name: 'vue3',
-				component: () => import('@/views/vue3/vue3'),
-				meta: { title: 'vue3', icon: 'el-icon-s-finance' }
-			},
-			{
-				path: 'vue3_2',
-				name: 'vue3_2',
-				component: () => import('@/views/vue3/vue3_2'),
-				meta: { title: 'vue3_2', icon: 'el-icon-s-flag' }
+				meta: { title: '静态 Table', icon: 'el-icon-s-data' }
 			}
 		]
 	},
@@ -76,6 +49,21 @@ export const constantRoutes = [
 				name: 'form',
 				component: () => import("@/views/form"),
 				meta: {title: 'form', icon: 'el-icon-document-copy'}
+			}
+		]
+	},
+	{
+		path: "/article",
+		component: Layout,
+		redirect: '/article/list',
+		name: 'article',
+		meta: {title: 'article', icon: 'el-icon-document-copy'},
+		children: [
+			{
+				path: 'list',
+				name: 'list',
+				component: () => import("@/views/article/list"),
+				meta: {title: '文章列表', icon: 'el-icon-tickets'}
 			}
 		]
 	}

@@ -11,6 +11,8 @@ import VueCompositionApi from '@vue/composition-api'
 
 import '@/icons' // icon
 
+import "@/mock/article.js"
+
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);

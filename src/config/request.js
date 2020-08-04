@@ -3,8 +3,8 @@ module.exports = {
      * api请求基础路径
      */
     base_url: {
-        dev: "http://demoDev.com",
-        pro: "http://demoPro.com"
+        dev: "",
+        pro: ""
     },
 
     /**
