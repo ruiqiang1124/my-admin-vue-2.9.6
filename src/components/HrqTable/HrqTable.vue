@@ -31,22 +31,34 @@
 <script>
 export default {
     props: {
+        // 表格数据
         data: {
             type: Array,
             required: true,
-            default: []
+            default: () => []
         },
+        /**
+         * 字段列信息
+         * {
+         *       label: '名称',
+         *       prop: '字段属性',
+         * }
+         */
         columns: {
             type: Array,
             required: true,
-            default: [
-                {
-                    prop: '',
-                    label: '',
-                    operation: []
-                }
-            ]
-        }
+            default: () => []
+        },
+        // 是否分页
+        pagination: {
+            type: Boolean,
+            default: true
+        },
+        // 是否显示序号列
+        sequence: {
+            type: Boolean,
+            default: false
+        },
     },
     data() {
         return {

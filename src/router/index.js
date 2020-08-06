@@ -34,6 +34,12 @@ export const constantRoutes = [
 				name: 'Table',
 				component: () => import('@/views/member/memberExperience'),
 				meta: { title: '静态 Table', icon: 'el-icon-s-data' }
+			},
+			{
+				path: 'table2',
+				name: 'table2',
+				component: () => import('@/views/member/table2'),
+				meta: { title: 'table组件', icon: 'el-icon-s-data' }
 			}
 		]
 	},

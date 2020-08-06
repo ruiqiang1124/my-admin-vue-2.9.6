@@ -10,6 +10,7 @@
 
 <script>
 import HrqTable from "@/components/HrqTable/HrqTable";
+import {Table} from "element-ui"
 
 import {getArticleList} from "@/api"
 export default {
@@ -56,6 +57,7 @@ export default {
         }
     },
     mounted() {
+        console.log(Table)
         this.getArticleList();
     },
     methods: {
