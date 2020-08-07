@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-
 export default {
     name: 'DemoTable',
     props: {
