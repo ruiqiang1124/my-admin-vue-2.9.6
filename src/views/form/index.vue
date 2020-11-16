@@ -87,6 +87,9 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('11')
+  },
   methods: {
     onSubmit(form) {
         console.log('submit!');
